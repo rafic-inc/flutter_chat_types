@@ -31,7 +31,7 @@ enum Status { delivered, error, seen, sending, sent }
 @immutable
 abstract class Message extends Equatable {
   const Message({
-    required this.hiveKey
+    required this.hiveKey,
     required this.author,
     this.createdAt,
     required this.id,
