@@ -11,6 +11,7 @@ UnsupportedMessage _$UnsupportedMessageFromJson(Map<String, dynamic> json) =>
       author: User.fromJson(json['author'] as Map<String, dynamic>),
       createdAt: json['createdAt'] as int?,
       id: json['id'] as String,
+      hiveKey: json['hiveKey'] as String?,
       metadata: json['metadata'] as Map<String, dynamic>?,
       remoteId: json['remoteId'] as String?,
       repliedMessage: json['repliedMessage'] == null
@@ -36,6 +37,7 @@ Map<String, dynamic> _$UnsupportedMessageToJson(UnsupportedMessage instance) {
 
   writeNotNull('createdAt', instance.createdAt);
   val['id'] = instance.id;
+  writeNotNull('hiveKey', instance.hiveKey);
   writeNotNull('metadata', instance.metadata);
   writeNotNull('remoteId', instance.remoteId);
   writeNotNull('repliedMessage', instance.repliedMessage?.toJson());

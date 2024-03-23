@@ -10,6 +10,7 @@ TextMessage _$TextMessageFromJson(Map<String, dynamic> json) => TextMessage(
       author: User.fromJson(json['author'] as Map<String, dynamic>),
       createdAt: json['createdAt'] as int?,
       id: json['id'] as String,
+      hiveKey: json['hiveKey'] as String?,
       metadata: json['metadata'] as Map<String, dynamic>?,
       previewData: json['previewData'] == null
           ? null
@@ -39,6 +40,7 @@ Map<String, dynamic> _$TextMessageToJson(TextMessage instance) {
 
   writeNotNull('createdAt', instance.createdAt);
   val['id'] = instance.id;
+  writeNotNull('hiveKey', instance.hiveKey);
   writeNotNull('metadata', instance.metadata);
   writeNotNull('remoteId', instance.remoteId);
   writeNotNull('repliedMessage', instance.repliedMessage?.toJson());

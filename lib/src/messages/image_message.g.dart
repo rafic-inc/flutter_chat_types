@@ -11,6 +11,7 @@ ImageMessage _$ImageMessageFromJson(Map<String, dynamic> json) => ImageMessage(
       createdAt: json['createdAt'] as int?,
       height: (json['height'] as num?)?.toDouble(),
       id: json['id'] as String,
+      hiveKey: json['hiveKey'] as String?,
       metadata: json['metadata'] as Map<String, dynamic>?,
       name: json['name'] as String,
       remoteId: json['remoteId'] as String?,
@@ -40,6 +41,7 @@ Map<String, dynamic> _$ImageMessageToJson(ImageMessage instance) {
 
   writeNotNull('createdAt', instance.createdAt);
   val['id'] = instance.id;
+  writeNotNull('hiveKey', instance.hiveKey);
   writeNotNull('metadata', instance.metadata);
   writeNotNull('remoteId', instance.remoteId);
   writeNotNull('repliedMessage', instance.repliedMessage?.toJson());

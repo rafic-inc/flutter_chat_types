@@ -17,6 +17,7 @@ abstract class CustomMessage extends Message {
     required super.author,
     super.createdAt,
     required super.id,
+    super.hiveKey,
     super.metadata,
     super.remoteId,
     super.repliedMessage,
@@ -31,7 +32,7 @@ abstract class CustomMessage extends Message {
     required User author,
     int? createdAt,
     required String id,
-    String hiveKey,
+    String? hiveKey,
     Map<String, dynamic>? metadata,
     String? remoteId,
     Message? repliedMessage,
@@ -51,7 +52,7 @@ abstract class CustomMessage extends Message {
     required User author,
     int? createdAt,
     required String id,
-    String hiveKey,
+    String? hiveKey,
     required PartialCustom partialCustom,
     String? remoteId,
     String? roomId,
@@ -116,6 +117,7 @@ class _CustomMessage extends CustomMessage {
     required super.author,
     super.createdAt,
     required super.id,
+    super.hiveKey,
     super.metadata,
     super.remoteId,
     super.repliedMessage,
@@ -129,16 +131,16 @@ class _CustomMessage extends CustomMessage {
   @override
   Message copyWith({
     User? author,
-    dynamic createdAt = _Unset,
+    Object? createdAt = _Unset, // Use Object? for the _Unset comparison
     String? id,
-    String? hiveKey,
-    dynamic metadata = _Unset,
-    dynamic remoteId = _Unset,
-    dynamic repliedMessage = _Unset,
-    dynamic roomId,
-    dynamic showStatus = _Unset,
-    dynamic status = _Unset,
-    dynamic updatedAt = _Unset,
+    Object? hiveKey = _Unset, // Allow null
+    Object? metadata = _Unset, // Allow null and differentiation
+    Object? remoteId = _Unset,
+    Object? repliedMessage = _Unset,
+    Object? roomId = _Unset,
+    Object? showStatus = _Unset,
+    Object? status = _Unset,
+    Object? updatedAt = _Unset,
   }) =>
       _CustomMessage(
         author: author ?? this.author,

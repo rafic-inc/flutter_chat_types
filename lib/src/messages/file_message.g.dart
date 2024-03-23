@@ -10,6 +10,7 @@ FileMessage _$FileMessageFromJson(Map<String, dynamic> json) => FileMessage(
       author: User.fromJson(json['author'] as Map<String, dynamic>),
       createdAt: json['createdAt'] as int?,
       id: json['id'] as String,
+      hiveKey: json['hiveKey'] as String?,
       isLoading: json['isLoading'] as bool?,
       metadata: json['metadata'] as Map<String, dynamic>?,
       mimeType: json['mimeType'] as String?,
@@ -40,6 +41,7 @@ Map<String, dynamic> _$FileMessageToJson(FileMessage instance) {
 
   writeNotNull('createdAt', instance.createdAt);
   val['id'] = instance.id;
+  writeNotNull('hiveKey', instance.hiveKey);
   writeNotNull('metadata', instance.metadata);
   writeNotNull('remoteId', instance.remoteId);
   writeNotNull('repliedMessage', instance.repliedMessage?.toJson());

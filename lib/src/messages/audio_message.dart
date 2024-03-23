@@ -17,6 +17,7 @@ abstract class AudioMessage extends Message {
     super.createdAt,
     required this.duration,
     required super.id,
+    super.hiveKey,
     super.metadata,
     this.mimeType,
     required this.name,
@@ -62,7 +63,7 @@ abstract class AudioMessage extends Message {
     required User author,
     int? createdAt,
     required String id,
-    String hiveKey,
+    String? hiveKey,
     required PartialAudio partialAudio,
     String? remoteId,
     String? roomId,
@@ -163,6 +164,7 @@ class _AudioMessage extends AudioMessage {
     super.createdAt,
     required super.duration,
     required super.id,
+    super.hiveKey,
     super.metadata,
     super.mimeType,
     required super.name,
@@ -203,6 +205,7 @@ class _AudioMessage extends AudioMessage {
         createdAt: createdAt == _Unset ? this.createdAt : createdAt as int?,
         duration: duration ?? this.duration,
         id: id ?? this.id,
+        hiveKey: hiveKey ?? this.hiveKey,
         metadata: metadata == _Unset
             ? this.metadata
             : metadata as Map<String, dynamic>?,
