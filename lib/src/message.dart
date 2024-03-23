@@ -31,6 +31,7 @@ enum Status { delivered, error, seen, sending, sent }
 @immutable
 abstract class Message extends Equatable {
   const Message({
+    required this.hiveKey
     required this.author,
     this.createdAt,
     required this.id,
@@ -81,6 +82,9 @@ abstract class Message extends Equatable {
   /// Unique ID of the message.
   final String id;
 
+/// local db Hive key of the message.
+  final String hiveKey;
+
   /// Additional custom metadata or attributes related to the message.
   final Map<String, dynamic>? metadata;
 
@@ -110,6 +114,7 @@ abstract class Message extends Equatable {
     User? author,
     int? createdAt,
     String? id,
+    String? hiveKey,
     Map<String, dynamic>? metadata,
     String? remoteId,
     Message? repliedMessage,
